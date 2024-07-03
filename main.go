@@ -41,18 +41,18 @@ func consume(c <-chan string) []string {
 }
 func main() {
 	// a := []string{"NORTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"}
-	// a = []string{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"}
+	a := []string{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"}
 	// a := []string{"SOUTH", "NORTH", "WEST"}
-	// log.Println(DirReduc(a))
 	// log.Println(Opposite("SOUTH","EAST"))
-	log.Println(ParseDigit(515))
-	// a := []string{"SOUTH", "NORTH", "WEST"}
-	a := ParseDigit(530)
-	// b := []string{"SOUTH", "WEST"}
-	b := ParseDigit(531)
-	log.Println(unorderedEqual(a, b))
-	log.Println(NextSmaller(1234567908))
-
+	// log.Println(ParseDigit(515))
+	// // a := []string{"SOUTH", "NORTH", "WEST"}
+	// a := ParseDigit(530)
+	// // b := []string{"SOUTH", "WEST"}
+	// b := ParseDigit(531)
+	// log.Println(unorderedEqual(a, b))
+	// log.Println(NextSmaller(1234567908))
+	
+	log.Println(DirReduc(a))
 }
 
 func NextSmaller(n int) int {
@@ -146,13 +146,14 @@ func optimaze(arr []string) []string {
 	for i := 0; i < len(arr)-1; i++ {
 		log.Println(i, temp)
 		if Opposite(arr[i], arr[i+1]) {
+			log.Println("opposite")
 			i += 1
 		} else {
 			// log.Println("here")
 			temp = append(temp, arr[i])
-			if i == len(arr)-2 {
-				temp = append(temp, arr[i+1])
-			}
+		}
+		if i == len(arr)-2 {
+			temp = append(temp, arr[i+1])
 		}
 	}
 	return temp
